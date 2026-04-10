@@ -1,0 +1,9 @@
+package medical_management.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import medical_management.entities.PatientEntity;
+
+public interface PatientRepository extends JpaRepository<PatientEntity, Long> {
+
+}
