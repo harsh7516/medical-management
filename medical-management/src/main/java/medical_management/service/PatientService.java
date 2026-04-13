@@ -83,4 +83,38 @@ public List<PatientResponseDto> getAllPatients() {
     return responseList;
 }
 
+    public PatientResponseDto updatePatient(Long id, PatientRequestDto dto){
+        PatientEntity patientEntity = patientRepository.findById(id).orElseThrow(() -> new RuntimeException("Patient not found"));
+        
+        patientEntity.setName(dto.getName());
+        patientEntity.setEmail(dto.getEmail());
+        patientEntity.setAge(dto.getAge());
+        patientEntity.setGender(dto.getGender());
+        patientEntity.setPhone(dto.getPhone());
+        patientEntity.setAddress(dto.getAddress());
+
+        patientRepository.save(patientEntity);
+
+         PatientResponseDto response = new PatientResponseDto();
+    response.setId(patientEntity.getId());
+    response.setName(patientEntity.getName());
+    response.setEmail(patientEntity.getEmail());
+    response.setAge(patientEntity.getAge());
+    response.setGender(patientEntity.getGender());
+    response.setPhone(patientEntity.getPhone());
+    response.setAddress(patientEntity.getAddress());
+
+    return response;
+}
+
+    public String deletePatient(Long id) {
+
+    PatientEntity patient = patientRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("Patient not found"));
+
+    patientRepository.delete(patient);
+
+    return "Patient deleted successfully";
+}
+
 }

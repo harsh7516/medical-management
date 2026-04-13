@@ -19,9 +19,11 @@ public class DoctorsEntity {
     @GeneratedValue (strategy= GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private String email;
+    private String phone;
     private String specialization;
     private String education;
-    private String experience;
+    private Integer experience;
     private String availability;
     
 }
