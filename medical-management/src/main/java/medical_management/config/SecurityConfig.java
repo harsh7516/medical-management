@@ -13,8 +13,8 @@ public class SecurityConfig {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/patients/**").permitAll()
                 .requestMatchers("/api/doctors/**").permitAll()
+                .requestMatchers("/api/patients/**").permitAll()
                 .requestMatchers("/api/appointments/**").permitAll()
                 .anyRequest().permitAll()
             );

@@ -111,4 +111,8 @@ public class DoctorService {
 
         return "Doctor deleted successfully";
     }
+
+    public List<DoctorsEntity> searchDoctorsBySpecialization(String specialization) {
+    return doctorRepository.findBySpecializationContainingIgnoreCase(specialization);
+}
 }
