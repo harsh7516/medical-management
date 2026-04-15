@@ -7,11 +7,8 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import medical_management.dto.DoctorRequestDto;
-import medical_management.dto.DoctorResponseDto;
 import medical_management.dto.DoctorresponceDto;
-import medical_management.entities.DoctorEntity;
 import medical_management.entities.DoctorsEntity;
-import medical_management.repository.DoctorRepository;
 import medical_management.repository.DoctorsRepository;
 
 @Service

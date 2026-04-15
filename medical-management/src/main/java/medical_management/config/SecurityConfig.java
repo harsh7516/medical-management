@@ -10,12 +10,13 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
         http
-            .csrf(csrf -> csrf.disable())  // Postman ke liye disable
+            .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/patients/**").permitAll() // Patient APIs open
-                .anyRequest().authenticated()
+                .requestMatchers("/api/patients/**").permitAll()
+                .requestMatchers("/api/doctors/**").permitAll()
+                .requestMatchers("/api/appointments/**").permitAll()
+                .anyRequest().permitAll()
             );
 
         return http.build();

@@ -6,9 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import medical_management.entities.PatientEntity;
 
-
 public interface PatientRepository extends JpaRepository<PatientEntity, Long> {
 
-    Optional<PatientEntity> findByEmail(String name);
-
+    Optional<PatientEntity> findByEmail(String email);
 }
